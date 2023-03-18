@@ -45,7 +45,17 @@ export default async function handler(
           },
         }))
       }),
-    ).then((embeds) => embeds.flat())
+    ).then((embeds) =>
+      embeds.flat().sort((a, b) => {
+        if (a.timestamp && b.timestamp) {
+          // 日付昇順
+          return (
+            new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+          )
+        }
+        return 0
+      }),
+    )
 
     if (embeds.length !== 0) {
       await sendWebhookDiscord(embeds)
@@ -55,7 +65,14 @@ export default async function handler(
 
     res.status(200).json({ message: 'ok' })
   } catch (error) {
-    console.error('Failed to send Discord Message:', error)
-    res.status(500).json({ message: 'Internal Server Error' })
+    if (error instanceof Error) {
+      console.error(error)
+
+      res.status(500).json({ message: error.message })
+    } else {
+      console.error(JSON.stringify(error))
+
+      res.status(500).json({ message: 'Internal Server Error' })
+    }
   }
 }
