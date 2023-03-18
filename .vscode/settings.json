@@ -2,12 +2,10 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.eslint": true
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "prettier.configPath": ".prettierrc.json",
   "files.insertFinalNewline": true,
-  "stylelint.validate": ["css", "scss"],
   "typescript.enablePromptUseWorkspaceTsdk": true
 }
