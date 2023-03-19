@@ -2,6 +2,8 @@
 
 <img src="https://user-images.githubusercontent.com/48175599/226177021-ab167aed-60f2-4a52-8625-a0dbf992e0c2.png" width="250px" style="border-radius: 10px;" />
 
+Invite owner discord server: https://discord.com/invite/JMfbHQp7zJ
+
 ## Features
 
 - [x] Feed - 事前に登録してある RSS フィードを定期的にチェックし、更新があった場合に通知を送信します。
