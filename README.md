@@ -1,6 +1,6 @@
 # Sasala - Discord Assistant
 
-![1 girl, cute, small  smile, white hair,   s-3164388650](https://user-images.githubusercontent.com/48175599/226177021-ab167aed-60f2-4a52-8625-a0dbf992e0c2.png)
+<img src="https://user-images.githubusercontent.com/48175599/226177021-ab167aed-60f2-4a52-8625-a0dbf992e0c2.png" width="250px" style="border-radius: 10px;" />
 
 ## Features
 
@@ -12,15 +12,19 @@
 
 **Vercel でデプロイする場合は、以下の環境変数を設定してください。**
 
-- API_KEY - このアプリケーションの API キー
-- DISCORD_WEBHOOK_URL - Discord の Webhook URL
-- MICROCMS_API_KEY - MicroCMS の API キー
-- MICROCMS_SERVICE_DOMAIN - MicroCMS のサービスドメイン
+| Name                    | Value                                           |
+| ----------------------- | ----------------------------------------------- |
+| API_KEY                 | このアプリケーションの API キー（任意の文字列） |
+| DISCORD_WEBHOOK_URL     | Discord の Webhook URL                          |
+| MICROCMS_API_KEY        | MicroCMS の API キー                            |
+| MICROCMS_SERVICE_DOMAIN | MicroCMS のサービスドメイン                     |
 
 **GitHub でデプロイする場合は、以下の環境変数を設定してください。**
 
-- API_KEY - このアプリケーションの API キー
-- SERVICE_DOMAIN - このアプリケーションのサービスドメイン
+| Name           | Value                                           |
+| -------------- | ----------------------------------------------- |
+| API_KEY        | このアプリケーションの API キー（任意の文字列） |
+| SERVICE_DOMAIN | このアプリケーションのサービスドメイン          |
 
 ## License
 
