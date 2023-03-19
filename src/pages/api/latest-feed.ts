@@ -1,12 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next/types'
 import Parser from 'rss-parser'
+import { env } from '@/env.mjs'
 import { DiscordEmbed, sendWebhookDiscord } from '@/features/discord'
 import {
   fetchFeedsURl,
   fetchMeta,
   patchMetaFeedLastFetchedAt,
 } from '@/features/microcms'
-import { env } from '/env'
 
 export default async function handler(
   req: NextApiRequest,
