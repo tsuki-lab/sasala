@@ -24,7 +24,8 @@ export type DiscordEmbed = {
 }
 
 export const sendWebhookDiscord = async (embeds: DiscordEmbed[]) => {
-  for (const [i, embed] of Object.entries(embeds)) {
+  for (let i = 0; i < embeds.length; i++) {
+    const embed = embeds[i]
     const response = await fetch(env.DISCORD_WEBHOOK_URL, {
       method: 'POST',
       headers: {
@@ -35,7 +36,7 @@ export const sendWebhookDiscord = async (embeds: DiscordEmbed[]) => {
         avatar_url:
           'https://media.discordapp.net/attachments/1086331369011032084/1086331435243278336/1_girl_cute_small._smile_white_hair_s-3164388650.png?width=407&height=407',
         content:
-          i === '0'
+          i === 0
             ? 'あ、あの...新しい記事があるんですけど、お暇なときに見てもらえますか？\n'
             : undefined,
         embeds: [embed],

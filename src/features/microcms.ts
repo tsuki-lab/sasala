@@ -25,24 +25,37 @@ export const fetchFeedsURl = async (): Promise<MicroCMSFeed[]> => {
   return contents
 }
 
-export const patchFeedsLastFetchedAt = async (
-  feeds: MicroCMSFeed[],
-  now: string,
-) => {
-  for (const feed of feeds) {
-    await fetch(
-      `https://${env.MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/feeds/${feed.id}`,
-      {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-API-KEY': env.MICROCMS_API_KEY,
-        },
-        body: JSON.stringify({
-          feedUrl: feed.feedUrl,
-          lastFetchedAt: now,
-        }),
+export const fetchMeta = async (): Promise<{ feedLastFetchedAt: string }> => {
+  const response = await fetch(
+    `https://${env.MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/meta`,
+    {
+      headers: {
+        'X-API-KEY': env.MICROCMS_API_KEY,
       },
-    )
+    },
+  )
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch meta. Status: ${response.status}`)
   }
+
+  const { feedLastFetchedAt } = await response.json()
+
+  return { feedLastFetchedAt }
+}
+
+export const patchMetaFeedLastFetchedAt = async (now: string) => {
+  await fetch(
+    `https://${env.MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/meta`,
+    {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-API-KEY': env.MICROCMS_API_KEY,
+      },
+      body: JSON.stringify({
+        feedLastFetchedAt: now,
+      }),
+    },
+  )
 }
