@@ -7,6 +7,7 @@ import {
   fetchMeta,
   patchMetaFeedLastFetchedAt,
 } from '@/features/microcms'
+// import { wrapUpOpenAI } from '@/features/openai'
 
 export default async function handler(
   req: NextApiRequest,
@@ -88,6 +89,11 @@ export default async function handler(
     )
 
     if (embeds.length !== 0) {
+      // const content = await wrapUpOpenAI(
+      //   embeds.map((embed) => embed.description).join(','),
+      // )
+      // console.log(content)
+
       // Discordに通知
       await sendWebhookDiscord(embeds)
     }
