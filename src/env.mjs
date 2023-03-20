@@ -10,6 +10,8 @@ const environmentSchema = z.object({
   MICROCMS_SERVICE_DOMAIN: z.string().min(1),
   // このAPIキーは、APIの認証に使う
   API_KEY: z.string().min(1),
+  // このAPIキーは、OpenAIのAPIに使う
+  OPENAI_API_KEY: z.string().min(1),
 })
 
 /** @typedef {z.input<typeof environmentSchema>} Env */

@@ -50,6 +50,7 @@ export default async function handler(
         return feedItems.map(
           (item): DiscordEmbed => ({
             title: item.title,
+            description: item.content,
             url: item.link,
             timestamp: item.isoDate,
             color: 197379,
